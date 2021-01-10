@@ -1,5 +1,6 @@
 # caddy
 
+Create config file
 ```bash
 cat << EOF > Caddyfile
 k8s.shubhamtatvamasi.com {
