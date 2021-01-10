@@ -12,7 +12,7 @@ EOF
 
 Start docker container:
 ```bash
-docker run --rm -it -p 80:80 -p 443:443 \
+docker run -d -p 80:80 -p 443:443 \
   -v $PWD/Caddyfile:/etc/caddy/Caddyfile \
   -v caddy_data:/data \
   caddy
