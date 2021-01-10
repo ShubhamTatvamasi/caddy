@@ -3,7 +3,8 @@
 Create config file
 ```bash
 cat << EOF > Caddyfile
-k8s.shubhamtatvamasi.com {
+k8s.shubhamtatvamasi.com,
+*.k8s.shubhamtatvamasi.com {
     reverse_proxy 172.21.107.235:80
 }
 EOF
