@@ -1,0 +1,8 @@
+k8s.shubhamtatvamasi.com,
+*.k8s.shubhamtatvamasi.com {
+
+  reverse_proxy 172.21.107.235:80
+
+  tls /data/fullchain.cer /data/shubhamtatvamasi.com.key
+
+}
