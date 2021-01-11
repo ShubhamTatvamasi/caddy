@@ -9,21 +9,30 @@ docker run -d -p 80:80 -p 443:443 \
   caddy
 ```
 
+Deploy on Kubernetes:
+```bash
+kubectl run caddy --image=caddy --port=80 --expose
+```
+
 Add ingress value in kubernetes:
 ```bash
 kubectl apply -f - << EOF
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: nginx
+  name: caddy
 spec:
+  tls:
+    - hosts:
+      - caddy.k8s.shubhamtatvamasi.com
+      secretName: letsencrypt
   rules:
-    - host: nginx.k8s.shubhamtatvamasi.com
+    - host: caddy.k8s.shubhamtatvamasi.com
       http:
         paths:
         - path: /
           backend:
-            serviceName: nginx
+            serviceName: caddy
             servicePort: 80
 EOF
 ```
