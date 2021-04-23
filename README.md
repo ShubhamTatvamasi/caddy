@@ -1,5 +1,11 @@
 # caddy
 
+deployment with LoadBalancer
+```bash
+kubectl create deployment caddy --image=caddy
+kubectl expose deployment caddy --port=80 --name=caddy --type=LoadBalancer
+```
+
 Start docker container:
 ```bash
 docker run -d -p 80:80 -p 443:443 \
