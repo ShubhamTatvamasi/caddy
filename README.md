@@ -1,5 +1,8 @@
 # caddy
 
+For custom builds with dns: \
+https://caddyserver.com/download
+
 deployment with LoadBalancer
 ```bash
 kubectl create deployment caddy --image=caddy
