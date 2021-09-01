@@ -2,7 +2,7 @@ version: "3.7"
 services:
   caddy:
     image: caddy
-    container_name: srsenb
+    container_name: caddy
     network_mode: host
     ports:
       - 80:80
