@@ -1,5 +1,17 @@
 # caddy
 
+### Ingress
+
+
+Add caddy-ingress helm repo:
+```bash
+helm repo add caddy-ingress https://caddyserver.github.io/ingress
+helm repo update
+```
+
+
+---
+
 For custom builds with dns: \
 https://caddyserver.com/download
 
