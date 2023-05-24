@@ -22,6 +22,14 @@ kubectl -n caddy-system patch svc caddy-ingress-controller \
   --patch='{"spec": {"type": "ClusterIP"}}'
 ```
 
+### Test
+
+Create a nginx pod:
+```bash
+kubectl run nginx --image nginx:alpine
+kubectl expose pod nginx --port=80 --name=nginx
+```
+
 ---
 
 For custom builds with dns: \
