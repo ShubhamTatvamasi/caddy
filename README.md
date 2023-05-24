@@ -30,6 +30,30 @@ kubectl run nginx --image nginx:alpine
 kubectl expose pod nginx --port=80 --name=nginx
 ```
 
+Create Ingress:
+```bash
+kubectl apply -f - << EOF
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    kubernetes.io/ingress.class: caddy
+spec:
+  rules:
+    - host: "nginx.frp.shubhamtatvamasi.com"
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx
+              port:
+                number: 80
+EOF
+```
+
 ---
 
 For custom builds with dns: \
