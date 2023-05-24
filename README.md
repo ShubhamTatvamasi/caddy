@@ -2,13 +2,25 @@
 
 ### Ingress
 
-
 Add caddy-ingress helm repo:
 ```bash
 helm repo add caddy-ingress https://caddyserver.github.io/ingress
 helm repo update
 ```
 
+Install caddy-ingress-controller:
+```bash
+helm upgrade -i caddy-ingress-controller caddy-ingress/caddy-ingress-controller \
+  --version 1.0.4 \
+  --create-namespace \
+  --namespace caddy-system
+```
+
+Change service to ClusterIP:
+```bash
+kubectl -n caddy-system patch svc caddy-ingress-controller \
+  --patch='{"spec": {"type": "ClusterIP"}}'
+```
 
 ---
 
